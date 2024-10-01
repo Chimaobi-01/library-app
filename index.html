@@ -5,9 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>library app</title>
     <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    hello world
+    <header>
+        <nav>
+            <div class="logo">library</div>
+            <form>
+                <label>
+                    <i class="fa fa-search"></i>
+                    <input type="text">
+                </label>
+            </form>
+            <div>
+                <button class="add-book">new book <i class='fa fa-plus'></i></button>
+                <div class="profile">
+                    <p>leonard da vinci</p>
+                    <img src="./assets/pic.png" alt="avatar">
+                </div>
+            </div>
+            <div>
+                <i class="fa fa-home"></i> 
+                <i class="fa fa-user-circle-o"></i> 
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="sidebar">
+            <nav>
+
+                <ul>
+                    <li><i class="fa fa-book" aria-hidden="true"></i> top books</li>
+                    <li> <i class="fa fa-globe" aria-hidden="true"></i> discover</li>
+                    <li><i class="fa fa-user-circle-o" aria-hidden="true"></i> categories</li>
+                </ul>
+                <ul>
+                    <li><i class="fa fa-book"></i> reading</li>
+                    <li><i class="fa fa-heart" aria-hidden="true"></i> favourite read</li>
+                    <li><i class="fa fa-history" aria-hidden="true"></i> history</li>
+                </ul>
+                <ul>
+                    <li><i class="fa fa-archive" aria-hidden="true"></i> your shelves</li>
+                </ul>
+
+                <div>
+                    <button class="open-library"> open library</button>
+                </div>
+
+            </nav>
+        </div>
+        <div class="main">
+            <div class="books">
+                <p class="notice">Click on the "open library" button to view library</p>
+            </div>
+        </div>
+        <div class="aside">
+            <h4>your friends</h4>
+            <ul>
+                <li>
+                    <img src="./assets/friend1.jpg" alt="Gustovo reptile">
+                    <div>
+                        <h5>Gustovo reptile</h5>
+                        <p>The chairman of sosoliso</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/friend2.jpg" alt="Gustovo reptile">
+                    <div>
+                        <h5>Gustovo reptile</h5>
+                        <p>The chairman of sosoliso</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="./assets/friend3.jpg" alt="Gustovo reptile">
+                    <div>
+                        <h5>Gustovo reptile</h5>
+                        <p>The chairman of sosoliso</p>
+                    </div>
+                </li>
+               
+            </ul>
+        </div>
+    </div>
+    
+    <dialog >
+        <button class="close">
+            <i class="fa fa-close"></i>
+        </button>
+        <h2>Add a new book</h2>
+        <form action="">
+            <div>
+                <label for="">
+                    <span>title</span>
+                    <input type="text" name="title" autofocus>
+                </label>
+            </div>
+            <div>
+                <label for="">
+                    <span>author</span>
+                    <input type="text" name="author">
+                </label>
+            </div>
+            <div>
+                <label for="">
+                    <span>pages</span>
+                    <input type="number" name="pages">
+                </label>
+            </div>
+            <div>
+                <label for="">
+                    <span>read</span>
+                    <select name="read" id="">
+                        <option>true</option>
+                        <option >false</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <button formmethod="dialog" class="submit">Add to library</button>
+            </div>
+        </form>
+    </dialog>
     <script src="./script/script.js"></script>
 </body>
 </html>
