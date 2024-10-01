@@ -1,6 +1,8 @@
 
 const dialog = document.querySelector('dialog')
 const basePath = window.location.origin; // Gets the base URL of the current page
+
+
 const myLibrary = []
 const bookCoverImages = [
     `${basePath}/assets/random1.jpg`,
@@ -9,6 +11,7 @@ const bookCoverImages = [
     `${basePath}/assets/random4.jpg`,
     `${basePath}/assets/random5.png`
 ]
+console.log(bookCoverImages[0]);
 
 // add sample objects
 const book1 = new Book("happy", "alex lemon", 456, true, `${basePath}/assets/book1.jpg`)
