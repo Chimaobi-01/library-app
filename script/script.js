@@ -2,18 +2,18 @@
 const dialog = document.querySelector('dialog')
 const myLibrary = []
 const bookCoverImages = [
-    "../assets/random1.jpg",
-    "../assets/random2.jpg",
-    "../assets/random3.jpg",
-    "../assets/random4.jpg",
-    "../assets/random5.png"
+    "/assets/random1.jpg",
+    "/assets/random2.jpg",
+    "/assets/random3.jpg",
+    "/assets/random4.jpg",
+    "/assets/random5.png"
 ]
 
 // add sample objects
-const book1 = new Book("happy", "alex lemon", 456, true, "../assets/book1.jpg")
-const book2 = new Book("how to stop working and start living", "dale carnegie", 321, true, "../assets/book2.jpg")
-const book3 = new Book("your soul is a river", "nikita gill", 1054, false, "../assets/book3.jpg")
-const book4 = new Book("milk and honey", "rupi kaur", 114, false, "../assets/book4.jpg")
+const book1 = new Book("happy", "alex lemon", 456, true, "/assets/book1.jpg")
+const book2 = new Book("how to stop working and start living", "dale carnegie", 321, true, "/assets/book2.jpg")
+const book3 = new Book("your soul is a river", "nikita gill", 1054, false, "/assets/book3.jpg")
+const book4 = new Book("milk and honey", "rupi kaur", 114, false, "/assets/book4.jpg")
 myLibrary.push(book1, book2, book3, book4)
 
 
