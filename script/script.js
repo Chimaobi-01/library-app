@@ -11,7 +11,21 @@ const bookCoverImages = [
     `${basePath}/assets/random4.jpg`,
     `${basePath}/assets/random5.png`
 ]
-console.log(bookCoverImages[0]);
+
+// this is the constructor
+class Book {
+    constructor(title, author, pages, read, image) {
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+        this.image = image
+    }
+
+    toogleReadStatus() {
+        return this.read = !this.read
+    }
+}
 
 // add sample objects
 const book1 = new Book("happy", "alex lemon", 456, true, `${basePath}/assets/book1.jpg`)
@@ -21,17 +35,30 @@ const book4 = new Book("milk and honey", "rupi kaur", 114, false, `${basePath}/a
 myLibrary.push(book1, book2, book3, book4)
 
 
-// this is the constructor
-function Book(title, author, pages, read, image) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.image = image
+// handlers 
+const handlers = {
+    loadLibrary: e => {
+        e.target.style.display = "none"
+        displayBooks()
+    },
+    openDialog: () => { dialog.showModal() },
+    closeDialog: () => { dialog.close() },
+    addbook: e => {
+        e.preventDefault()
+        const title = document.querySelector('[name="title"]')
+        const author = document.querySelector('[name="author"]')
+        const pages = document.querySelector('[name="pages"]')
+        const read = document.querySelector('[name="read"]')
+
+
+        addBookToLibrary(title.value.trim(), author.value.trim(), pages.value, read.value)
+        title.value = ""
+        author.value = ""
+        dialog.close()
+        displayBooks()
+    }
 }
-Book.prototype.toogleReadStatus = function () {
-    return this.read = !this.read
-}
+
 
 // this function takes user inputs and store the new book object into an array
 function addBookToLibrary(title, author, pages, read) {
@@ -102,37 +129,6 @@ function displayBooks() {
     }
 }
 
-
-document.querySelector('.open-library').addEventListener('click', (e) => {
-    e.target.style.display = "none"
-    displayBooks()
-})
-document.querySelector('.close').addEventListener('click', () => {
-    dialog.close()
-})
-document.querySelector('.add-book').addEventListener('click', () => {
-    dialog.showModal()
-})
-document.querySelector('.submit').addEventListener('click', (e) => {
-    e.preventDefault()
-    const title = document.querySelector('[name="title"]')
-    const author = document.querySelector('[name="author"]')
-    const pages = document.querySelector('[name="pages"]')
-    const read = document.querySelector('[name="read"]')
-
-    // if (title === '' || author === '') {
-    //     alert('Both title and author are required.');
-    //     return;
-    // }
-
-    addBookToLibrary(title.value.trim(), author.value.trim(), pages.value, read.value)
-
-    title.value = ""
-    author.value = ""
-    dialog.close()
-    displayBooks()
-})
-
 function pickRandomPictures(array) {
     if (array.length === 0) {
         return null; // Return null if the array is empty
@@ -140,3 +136,21 @@ function pickRandomPictures(array) {
     const randomIndex = Math.floor(Math.random() * array.length);
     return array[randomIndex];
 }
+
+document.querySelector('body').addEventListener('click', e => {
+    const child = e.target
+    const openlibrary = child.className.includes('open-library')
+    const addbook = child.className.includes('add-book')
+    const cancel = child.className.includes('close')
+    const submit = child.className.includes('submit')
+
+    if(openlibrary)
+        handlers.loadLibrary(e)
+    if(addbook)
+        handlers.openDialog()
+    if(cancel)
+        handlers.closeDialog()
+    if(submit)
+        handlers.addbook(e)
+    
+})
